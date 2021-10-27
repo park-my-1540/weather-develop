@@ -15,18 +15,16 @@ export default function MainComp({
   menuOpen
 }) {
   const data = wstate.data[0];
-  console.log(data);
   let dateString = useRef();
   useEffect(() => {
     setDate();
   }, []);
   const setDate = () => {
-    let today = new Date();
-    let year = today.getFullYear(); // 년도
-    let month = today.getMonth() + 1; // 월
-    month = month === "12" ? month : "0" + month;
-    let date = today.getDate(); // 날짜
-    dateString.current = `${month}.${date}.${year}`;
+    let today = new Date(),
+        year = today.getFullYear(), // 년도
+        month = today.getMonth() + 1, // 월
+        date = today.getDate(); // 날짜
+       dateString.current = `${month}.${date}.${year}`;
   };
   return (
     <>
@@ -66,7 +64,6 @@ export default function MainComp({
           wstate={wstate}
           item_state={item_state}
         />
-        {/* //main-widget */}
       </div>
     </>
   );

@@ -47,7 +47,6 @@ export default function SubContainer({ wstate, fetchData }) {
     mainWidgetTween = useRef(null);
 
   const openSetWidget = () => {
-    console.log(currentTheme);
     showChangeBox(currentTheme);
     if (setmenuOpen) {
       stMenuTween.current.progress(1).reverse();
@@ -141,7 +140,6 @@ export default function SubContainer({ wstate, fetchData }) {
       />
       Design reference codepenio Stefan Tudoran
       {modalOpen && <Modal />}
-      {/* <Modal /> */}
     </>
   );
 }

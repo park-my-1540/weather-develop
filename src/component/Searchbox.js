@@ -1,13 +1,5 @@
 import React, { useCallback, useState, useEffect } from "react";
-import {
-  queryUpdate,
-  toggleModalOpen,
-  toggleSettingMenuOpen
-} from "../module/ui";
 import citylist from "../json/citylist";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faArrowCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import RecentList from "./RecentList";
 import MatchComp from "./RecentList";
 
@@ -19,6 +11,7 @@ export default function Searchbox({
   const [matchList, setMathList] = useState(""),
     [toggle, setToggle] = useState(false),
     [empty, setEmpty] = useState(false),
+    [empty02, setEmpty02] = useState(false),
     [city, setCity] = useState(""),
     [input, setInput] = useState(""),
     [arr, setArr] = useState("");
@@ -33,6 +26,7 @@ export default function Searchbox({
   const compareFunc = (_value) => {
     if (_value) {
       //입력 시
+      setEmpty02(true);
       var _cityList = citylist.filter(function (element) {
         //해당 단어와 매치된 도시
         var lowerEle = element.name.toLowerCase();
@@ -53,6 +47,9 @@ export default function Searchbox({
         });
         setMathList(array);
       }
+    }else{
+      setEmpty(false);
+      setEmpty02(false);
     }
   };
 
@@ -96,7 +93,6 @@ export default function Searchbox({
   const updateCity = () => {
     let today = new Date();
     let month = today.getMonth() + 1; // 월
-    month = (month === "12" ? month : "0" + month);
     let date = today.getDate(); // 날짜
 
     for (let key in recentArr) {
@@ -121,6 +117,7 @@ export default function Searchbox({
     }, 1500);
   };
   const recentToComponents = (recentArr) => {
+
     return recentArr.map((arr,i)=>{
       return(
         <RecentList
@@ -132,6 +129,11 @@ export default function Searchbox({
       )
     })
   }
+  const blank02 = (
+      <div className="none_wrap">
+        최근에 검색한 검색어가 없습니다.
+      </div>
+  );
   const blank = (
       <div className="none_wrap">
         일치하는 검색어가 없습니다.
@@ -140,9 +142,7 @@ export default function Searchbox({
       </div>
   );
   const matchToComponents = (matchArr) => {
-    
     return matchArr.map((arr,i)=>{
-      console.log(arr);
       return(
         <MatchComp
           updateFunc={updateFunc}
@@ -167,13 +167,17 @@ export default function Searchbox({
       />
       {empty && (
         <div className="list_box">
-          <div className="list recent">
-            <div className="title">
-              <p>최근검색어</p>
-              <a href="#none" onClick={btnAllDelete}>전체삭제 </a>
-            </div>
-            {recentToComponents(recentArr)}
-          </div>
+          {
+            !empty02 && (
+              <div className="list recent">
+                <div className="title">
+                  <p>최근검색어</p>
+                  <a href="#none" onClick={btnAllDelete}>전체삭제 </a>
+                </div>
+                {recentArr ?recentToComponents(recentArr) : blank02}
+              </div>
+            )
+          }
           <div className="list">
             {matchList.length > 0  ?  matchToComponents(matchList) : blank }
           </div>
