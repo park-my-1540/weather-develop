@@ -15,10 +15,10 @@ https://park-my-1540.github.io/weather-develop
 openweather 날씨 데이터 가져옴 <br/>
 https://home.openweathermap.org/api_keys
 
-IPSTACK IP를 이용하여 위치 도시 값 가져옴
+IPSTACK IP를 이용하여 위치 도시 값 가져옴<br/>
 https://ipstack.com/quickstart
 
-googleMap : 구글 지도 가져옴/ 마커 찍어줌
+googleMap : 구글 지도 가져옴/ 마커 찍어줌<br/>
 https://developers.google.com/maps/documentation/javascript/geolocation?hl=ko
 
 ### `state 관리`
