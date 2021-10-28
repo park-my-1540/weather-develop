@@ -36,6 +36,18 @@ state ={<br/>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind: true 바람세기<Br/>
    &nbsp;&nbsp;&nbsp;&nbsp;}<Br/>
 
+
 scss
 redux
 react- redux
+
+서버사이드 렌더링 안해볼래?
+### `사용한 라이브러리`
+axios<br/>
+gsap<br/>
+react-id-swiper<br/>
+redux<br/>
+react-redux<br/>
+sass<br/>
+swiper<br/>
+fontawesome
