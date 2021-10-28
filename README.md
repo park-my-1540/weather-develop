@@ -1,4 +1,4 @@
-# weaher react APP - develop
+# weather react APP - develop ver
 
 날씨 조회 및 위치 선택해서 재조회 가능
 
@@ -8,7 +8,7 @@ https://park-my-1540.github.io/weather-develop
 ## 기능
 
 메인 : 현재 위치 값으로 조회 (현재 날씨 정보 , 6일 날씨) <BR/>
-change Location 팝업 : 구글 맵에서 선택한 위치로 재조회 가능
+위젯 : 
 
 ### `API`
 
@@ -22,5 +22,20 @@ googleMap : 구글 지도 가져옴/ 마커 찍어줌
 https://developers.google.com/maps/documentation/javascript/geolocation?hl=ko
 
 ### `state 관리`
-뭐썻더라
+redux 관리<br/>
+state ={<br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;menuOpen: false, 메뉴 토글 <Br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;setmenuOpen: false, 세팅메뉴 토글,<Br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;modalOpen: false,  모달 토글<Br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;bg_color: "bg-blue", 현재 bg Color,<Br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;city: "Seoul", 도시 <Br/>
+  &nbsp;&nbsp;&nbsp;&nbsp;itemState: {<Br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unit: true, 단위<Br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;atmo: true, 공기질<Br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sun: true, 일출 일몰<Br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wind: true 바람세기<Br/>
+   &nbsp;&nbsp;&nbsp;&nbsp;}<Br/>
 
+scss
+redux
+react- redux
