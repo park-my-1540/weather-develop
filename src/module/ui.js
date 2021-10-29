@@ -30,6 +30,7 @@ const initalState = {
 };
 
 export default function ui(state = initalState, action) {
+  console.log(!state.modalOpen);
   switch (action.type) {
     case "MENUOPEN":
       return {

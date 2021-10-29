@@ -109,7 +109,6 @@ export default function SubContainer({ wstate, fetchData }) {
   useEffect(() => {
     showChangeBox(currentTheme);
   }, [currentTheme]);
-
   return (
     <>
       <MainComp
@@ -138,8 +137,8 @@ export default function SubContainer({ wstate, fetchData }) {
         onChangeColor={onChangeColor}
         onItemUpdate={onItemUpdate}
       />
-      Design reference codepenio Stefan Tudoran
       {modalOpen && <Modal />}
+      
     </>
   );
 }

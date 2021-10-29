@@ -23,7 +23,6 @@ export default function SettingMenuComp({
 }) {
 
   //임시 변수 : 테마색, 아이템
-  const [tempItem, setTempItem ] = useState('');
   const [tempColor, setTempColor ] = useState('');
 
   useEffect(() => { //초기화
@@ -224,9 +223,7 @@ export default function SettingMenuComp({
           </ul>
           {/* //setting-list */}
           <div className="btn-wrap">
-            <button type="button" className="change" onClick={saveFunc}>
-              Save
-            </button>
+            <button type="button" className="change" onClick={saveFunc}>Save</button>
           </div>
         </div>
       </div>

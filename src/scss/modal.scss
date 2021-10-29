@@ -5,6 +5,8 @@
   height: 100%;
   align-items: center;
   justify-content: center;
+  top: 0;
+    left: 0;
   &::after{
     content: '';
     background: #000000b3;

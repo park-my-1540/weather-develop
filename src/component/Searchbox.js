@@ -110,8 +110,9 @@ export default function Searchbox({
 
     localStorage.setItem("search", JSON.stringify(tempArr));
     setArr(JSON.parse(localStorage.getItem("search")));
-    onQueryUpdate(city);
+    onToggleModal();
     setTimeout(() => {
+      onQueryUpdate(city);
       onToggleMenu();
       onToggleModal();
     }, 1500);

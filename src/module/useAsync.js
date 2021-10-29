@@ -38,7 +38,6 @@ function useAsync(callback, deps = []) {
     dispatch({ type: "LOADING" });
     try {
       const data = await callback();
-      console.log(data);
       if (data === 400) {
         dispatch({ type: "ERROR", error: data });
       }

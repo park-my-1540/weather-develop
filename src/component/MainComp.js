@@ -18,13 +18,15 @@ export default function MainComp({
   let dateString = useRef();
   useEffect(() => {
     setDate();
-  }, []);
+  }, [dateString]);
+
   const setDate = () => {
     let today = new Date(),
         year = today.getFullYear(), // 년도
         month = today.getMonth() + 1, // 월
         date = today.getDate(); // 날짜
        dateString.current = `${month}.${date}.${year}`;
+       return `${month}.${date}.${year}`;
   };
   return (
     <>
@@ -38,7 +40,7 @@ export default function MainComp({
                 </i>
                 {data.city}
               </p>
-              <p className="day">{dateString.current}</p>
+              <p className="day">{setDate()}</p>
             </div>
             <a href="#none" className="btn-setting-menu" onClick={openSetWidget}><span></span><span></span> <span></span></a>
           </div>

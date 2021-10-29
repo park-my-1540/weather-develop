@@ -83,7 +83,6 @@ export const funcTheme = (currentTheme) => {
   return $bg_color;
 };
 export const showChangeBox = (theme) => {
-  console.log(theme);
   //change , slider 친구들은 bg-theme가 바뀔때마다 같이 바꿔줍니다.
   const changeComp = document.querySelectorAll(".change");
   changeComp.forEach((c) => {
