@@ -39,7 +39,6 @@ export default function SettingMenuComp({
 
       el.addEventListener("click", (e) => { //클릭시 일어나는 일
         e.preventDefault();
-        console.log("zzz");
         e.target.closest(".slider").classList.toggle("on");
       });
 
@@ -75,9 +74,7 @@ export default function SettingMenuComp({
     showChangeBox(selectBg); //테마박스 변경
     setTempColor(selectBg); // 
   };
-  // const state = _checkbox.filter(item => item.classList.contains("on").previousSibling.id)
-  // console.log(state);
-
+ 
   const changeItem = () => {
     const _checkbox = [...document.getElementsByClassName("slider")];
     let tempItem = {};

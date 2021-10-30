@@ -16,23 +16,12 @@ export default function Searchbox({
     [input, setInput] = useState(""),
     [arr, setArr] = useState("");
 
-  document.addEventListener("click", function (e) {
-    console.log(e.target);
-    if (e.target.classList.value !== "list") {
-      setToggle(false);
+  document.addEventListener("click",function (e) {
+    if (e.target.className ==="search") { //클릭했는데 검색창이면 열려
+      setEmpty(true); //열림
     }
-    // if (e.target !== "a") {
-    //   setEmpty(false);
-    // }
-  });
-  document.addEventListener("blur", function (e) {
-    console.dir(e.target);
-    // if (e.target.classList.value !== "list") {
-    //   setToggle(false);
-    // }
-    if (e.target !== "a") {
-      console.log("찍혀라");
-      setEmpty(false);
+    if (e.target.className !== "city" && e.target.className !=="search") {
+      setEmpty(false); //닫힘
     }
   });
 
@@ -79,16 +68,6 @@ export default function Searchbox({
     setEmpty(false);
   }, []);
 
-  //검색 박스 클릭시 .list 노출
-  const inputClick = () => {
-    setEmpty(true);
-  };
-  //검색 박스 포커스 아웃시 .list 미노출
-  const blurFunc = (e) => {
-    console.log(e.currentTarget);
-    // if(e.target)
-    // setEmpty(false);
-  };
   const btnDelete = (e) => {
     //해당 삭제
     const del_recentItem = e.currentTarget.getAttribute("data-city");
@@ -163,7 +142,6 @@ export default function Searchbox({
       </div>
   );
   const matchToComponents = (matchArr) => {
-    console.log(matchArr);
     return matchArr.map((arr,i)=>{
       return(
         <MatchComp
@@ -179,10 +157,9 @@ export default function Searchbox({
     <div className="search-box">
       <input
         type="text"
+        className="search"
         placeholder="Search City ex)Seoul"
         onChange={updateField}
-        onClick={inputClick}
-        // onBlur={blurFunc}
         value={input}
         onKeyPress={(e) => {
           e.keyCode === 13 && e.preventDefault();

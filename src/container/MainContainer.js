@@ -91,7 +91,7 @@ export default function SubContainer({ wstate, fetchData }) {
     mainWidgetTween.current = funcTweenReverse(
       this,
       _mainRef.current,
-      -100,
+      -85,
       -225,
       0.5
     );
