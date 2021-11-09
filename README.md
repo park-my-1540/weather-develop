@@ -49,6 +49,6 @@ gsap<br/>
 react-id-swiper<br/>
 redux<br/>
 react-redux<br/>
-sass<br/>
+scss<br/>
 swiper<br/>
 fontawesome
