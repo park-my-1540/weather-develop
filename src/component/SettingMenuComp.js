@@ -22,7 +22,7 @@ export default function SettingMenuComp({
   onItemUpdate
 }) {
 
-  //임시 변수 : 테마색, 아이템
+  //임시 변수 : 테마색, 아이템 store state에 넘기기 전 임시 상태값
   const [tempColor, setTempColor ] = useState('');
 
   useEffect(() => { //초기화
@@ -37,9 +37,8 @@ export default function SettingMenuComp({
         el.classList.add("on");
       }
 
-      el.addEventListener("click", (e) => { //클릭시 일어나는 일
+      el.addEventListener("click", (e) => { 
         e.preventDefault();
-        console.log("zzz");
         e.target.closest(".slider").classList.toggle("on");
       });
 
@@ -75,9 +74,10 @@ export default function SettingMenuComp({
     showChangeBox(selectBg); //테마박스 변경
     setTempColor(selectBg); // 
   };
-  // const state = _checkbox.filter(item => item.classList.contains("on").previousSibling.id)
-  // console.log(state);
-
+  
+  /**
+   * changeItem : 선택한 옵션값 저장해서 onItemUpdate로 넘겨줌
+   */
   const changeItem = () => {
     const _checkbox = [...document.getElementsByClassName("slider")];
     let tempItem = {};
@@ -97,11 +97,14 @@ export default function SettingMenuComp({
     return tempItem;
   };
 
-  const saveFunc = () => { //옵션 저장
+  /*
+    saveFunc : 옵션 저장 후  액션생성 함수들에 넘김
+  */
+  const saveFunc = () => { 
     onToggleModal();
     onChangeColor(tempColor);
     onItemUpdate(changeItem());
-    setTimeout(() => {
+    setTimeout(() => { //모달 열렸다가 닫힘 fake
       onToggleModal();
     }, 1500);
   };

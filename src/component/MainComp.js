@@ -3,6 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt, faCloudSun } from "@fortawesome/free-solid-svg-icons";
 import "../scss/main.scss";
 import MenuComp from "./MenuWidgetComp";
+/*
+  MainComp : Main 컴포넌트 
+           : wstate,_menuRef,openWidget,item_state  MenuComp에 전달
+ */
 export default function MainComp({
   _mainRef,
   _menuRef,

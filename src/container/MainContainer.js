@@ -17,8 +17,11 @@ import {
   updateItem
 } from "../module/ui";
 import { useSelector, useDispatch } from "react-redux";
-
-export default function SubContainer({ wstate, fetchData }) {
+/*
+  MainContainer 
+  wstate 값과 액션생성함수 전달  
+*/
+export default function MainContainer({ wstate, fetchData }) {
   const dispatch = useDispatch(),
     menuOpen = useSelector((state) => state.ui.menuOpen),
     modalOpen = useSelector((state) => state.ui.modalOpen),
@@ -27,6 +30,13 @@ export default function SubContainer({ wstate, fetchData }) {
     item_state = useSelector((state) => state.ui.itemState),
     unit = useSelector((state) => state.ui.itemState.unit);
 
+  /**
+   * onQueryUpdate : 도시 값 변경 디스패치 전달 함수
+   * onToggleModal : 모달 상태 값 변경 디스패치 전달 함수
+   * onToggleMenu : 메뉴 상태 값 변경 디스패치 전달 함수
+   * onItemUpdate : 선택된 옵션 값 변경 디스패치 전달 함수
+   * onChangeColor : 선택된 테마색상 값 변경 디스패치 전달 함수
+   */
   const  onQueryUpdate = (city) => dispatch(queryUpdate(city)),
          onToggleModal = () => dispatch(toggleModalOpen),
          onToggleMenu = () => dispatch(toggleSettingMenuOpen),
@@ -35,17 +45,21 @@ export default function SubContainer({ wstate, fetchData }) {
 
   //세팅메뉴 변수
   const _setmenuRef = useRef(null),
-    stMenuTween = useRef(null);
+        stMenuTween = useRef(null);
+
   //메인 페이지 변수
   const _pageRef = useRef(null),
-    pageTween = useRef(null);
+        pageTween = useRef(null);
 
   //위젯, 메뉴 변수
   const _menuRef = useRef(null),
-    menuTween = useRef(null),
-    _mainRef = useRef(null),
-    mainWidgetTween = useRef(null);
+        menuTween = useRef(null),
+        _mainRef = useRef(null),
+        mainWidgetTween = useRef(null);
 
+  /**
+   * openSetWidget : 세팅메뉴 여닫기
+   */
   const openSetWidget = () => {
     showChangeBox(currentTheme);
     if (setmenuOpen) {
@@ -58,6 +72,9 @@ export default function SubContainer({ wstate, fetchData }) {
     dispatch(toggleSettingMenuOpen); //토글 바뀜
   };
 
+  /**
+   * openWidget : 위젯 여닫기
+   */
   const openWidget = (e) => {
     funcOn(e.target.closest(".btn-menu-widget"));
     if (menuOpen) {
@@ -70,6 +87,9 @@ export default function SubContainer({ wstate, fetchData }) {
     dispatch(toggleMenuOpen); //토글 바뀜
   };
 
+  /**
+   * item_state 바뀔때마다 높이값 변경.
+   */
   useEffect(() => {
     const height = Math.round(
       document.querySelector(".menu-widget").offsetHeight
@@ -78,6 +98,18 @@ export default function SubContainer({ wstate, fetchData }) {
     menuTween.current.pause(); // 두번작돋 방지
   }, [item_state]);
 
+  /**
+   * showChangeBox : 변경 될때 마다 change , slider 색상 반영
+   */
+   useEffect(() => {
+    showChangeBox(currentTheme);
+  }, [currentTheme]);
+
+  /**
+    stMenuTween gsap 세팅
+    mainWidgetTween gsap 세팅
+    pageTween gsap 세팅
+  */
   useEffect(() => {
     stMenuTween.current = funcTweenReverse(
       this,
@@ -106,9 +138,7 @@ export default function SubContainer({ wstate, fetchData }) {
     );
     pageTween.current.pause(); // 두번작돋 방지
   }, []);
-  useEffect(() => {
-    showChangeBox(currentTheme);
-  }, [currentTheme]);
+
   return (
     <>
       <MainComp

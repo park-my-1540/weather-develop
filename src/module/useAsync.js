@@ -21,7 +21,7 @@ function reducer(state, action) {
         error: action.error
       };
     default:
-      throw new Error(`Unhandled action type: ${action.type}`);
+      return state;
   }
 }
 

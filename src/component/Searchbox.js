@@ -17,21 +17,12 @@ export default function Searchbox({
     [arr, setArr] = useState("");
 
   document.addEventListener("click", function (e) {
-    console.log(e.target);
     if (e.target.classList.value !== "list") {
       setToggle(false);
     }
-    // if (e.target !== "a") {
-    //   setEmpty(false);
-    // }
   });
   document.addEventListener("blur", function (e) {
-    console.dir(e.target);
-    // if (e.target.classList.value !== "list") {
-    //   setToggle(false);
-    // }
     if (e.target !== "a") {
-      console.log("찍혀라");
       setEmpty(false);
     }
   });
@@ -82,12 +73,6 @@ export default function Searchbox({
   //검색 박스 클릭시 .list 노출
   const inputClick = () => {
     setEmpty(true);
-  };
-  //검색 박스 포커스 아웃시 .list 미노출
-  const blurFunc = (e) => {
-    console.log(e.currentTarget);
-    // if(e.target)
-    // setEmpty(false);
   };
   const btnDelete = (e) => {
     //해당 삭제
@@ -182,7 +167,6 @@ export default function Searchbox({
         placeholder="Search City ex)Seoul"
         onChange={updateField}
         onClick={inputClick}
-        // onBlur={blurFunc}
         value={input}
         onKeyPress={(e) => {
           e.keyCode === 13 && e.preventDefault();

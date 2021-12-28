@@ -17,7 +17,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import SwiperItem from "./SwiperItem";
-
+/*
+  MenuWidgetComp : item_state 옵션 상태 값에 따라 아이템 항목 노출/미노출
+*/
 function MenuWidgetComp({ _menuRef, openWidget, wstate, item_state }) {
   const data = wstate.data[0];
   const data_forecast = wstate.data[0].forecastArray;

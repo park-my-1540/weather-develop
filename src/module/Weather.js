@@ -11,7 +11,11 @@ const convertTime = (_sec) => {
   var timestr = date.toLocaleTimeString();
   return timestr;
 };
-export default function Weaher({ unit, city_name }) {
+/**
+ * Weather 
+ * api 불러와서 by axios return 값 useAsync로 관리
+ */
+export default function Weather({ unit, city_name }) {
   unit ? (unit = "metric") : (unit = "imperial");
   const getData = async () => {
     let current_url = `https://api.openweathermap.org/data/2.5/weather?q=${city_name}&appid=${WEATHER_API_KEY}&units=${unit}`;
