@@ -74,10 +74,11 @@ export default function SettingMenuComp({
     showChangeBox(selectBg); //테마박스 변경
     setTempColor(selectBg); // 
   };
-  
+
   /**
    * changeItem : 선택한 옵션값 저장해서 onItemUpdate로 넘겨줌
    */
+
   const changeItem = () => {
     const _checkbox = [...document.getElementsByClassName("slider")];
     let tempItem = {};

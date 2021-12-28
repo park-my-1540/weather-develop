@@ -4,7 +4,7 @@
     background: #fff3;
     color: #fff;
     li{
-      padding: 10px 0 15px;
+      padding: 5px 0 5px;
       box-shadow: 0 -1px 0 rgba(0 ,0 ,0 , 0.05), inset 0 1px 0 rgba(255, 255, 255 , 0.1);
       &:last-child{
         padding:10px 0px 0;
@@ -20,7 +20,7 @@
   padding-top:15px;
   &.swiper{
     display: block;
-    height: 123px;
+    height: 110px;
     .swiper-container{
       height: 100%;
     }

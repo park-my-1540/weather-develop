@@ -7,8 +7,12 @@ https://park-my-1540.github.io/weather-develop
 
 ## 기능
 
-메인 : 현재 위치 값으로 조회 (현재 날씨 정보 , 6일 날씨) <BR/>
-위젯 : 
+**메인** : 선택한 도시 위치 값으로 날씨 노출됨 (초기값은 서울) <BR/> <BR/>
+**위젯 (하단 화살표버튼)** : 공기질, 일출/일몰, 풍향, 9일치 날씨 노출 (세팅메뉴에서 옵션 노출/미노출 선택 가능)<br/> <BR/>
+**세팅 메뉴 위젯(햄버거버튼)** : <br/><BR/>
+&nbsp;&nbsp;1) 도시검색 : 최근검색/ 검색 도시 노출 , 조회하고싶은 도시는 UPDATE 버튼 으로 조회 <BR/> 
+&nbsp;&nbsp;2) 위젯노출 옵션 선택 : 선택 후 SAVE버튼으로 저장<BR/>
+&nbsp;&nbsp;3) 테마 선택 가능 : 선택 후 SAVE버튼으로 저장<BR/>
 
 ### `API`
 
@@ -18,8 +22,10 @@ https://home.openweathermap.org/api_keys
 IPSTACK IP를 이용하여 위치 도시 값 가져옴<br/>
 https://ipstack.com/quickstart
 
-googleMap : 구글 지도 가져옴/ 마커 찍어줌<br/>
-https://developers.google.com/maps/documentation/javascript/geolocation?hl=ko
+### `폴더 관리`
+**Component : 프레젠테이션 컴포넌트**<br/>
+**Container : 리덕스 상태 조회/액션 디스패치**<br/>
+**module : 액션 타입 선언/ 액션 생성함수**
 
 ### `state 관리`
 redux 관리<br/>
@@ -41,13 +47,15 @@ scss
 redux
 react- redux
 
+=======
+
 ### `사용한 라이브러리`
 axios<br/>
 gsap<br/>
 react-id-swiper<br/>
 redux<br/>
 react-redux<br/>
-sass<br/>
+scss<br/>
 swiper<br/>
 fontawesome
 
