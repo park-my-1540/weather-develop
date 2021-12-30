@@ -25,7 +25,8 @@ export default function Searchbox({
   document.addEventListener("blur", function (e) {
     if (e.target !== "a") {
       setEmpty(false);
-
+    }
+  });
   document.addEventListener("click",function (e) {
     if (e.target.className ==="search") { //클릭했는데 검색창이면 열려
       setEmpty(true); //열림
@@ -79,13 +80,10 @@ export default function Searchbox({
     setEmpty(false);
   }, []);
 
-<<<<<<< HEAD
   //검색 박스 클릭시 .list 노출
   const inputClick = () => {
     setEmpty(true);
   };
-=======
->>>>>>> 76c6567f39f01aa0821e3dfc0efd59fca7d7f0e8
   const btnDelete = (e) => {
     //해당 삭제
     const del_recentItem = e.currentTarget.getAttribute("data-city");
@@ -178,10 +176,7 @@ export default function Searchbox({
         className="search"
         placeholder="Search City ex)Seoul"
         onChange={updateField}
-<<<<<<< HEAD
         onClick={inputClick}
-=======
->>>>>>> 76c6567f39f01aa0821e3dfc0efd59fca7d7f0e8
         value={input}
         onKeyPress={(e) => {
           e.keyCode === 13 && e.preventDefault();
@@ -208,4 +203,5 @@ export default function Searchbox({
       <button type="button" className="change" onClick={updateCity}>Update </button>
     </div>
   );
-}
+        }
+
